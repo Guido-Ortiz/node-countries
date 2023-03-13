@@ -13,7 +13,7 @@ var countries_data = countries.map(c => c.split(" "))
 var regex = /[a-zA-Z]/;
 
 var countries_density_population = countries_data.map(e => {
-    
+
     var name = '';
     var numbers = [];
     var density = 0;
@@ -35,4 +35,11 @@ var countries_density_population = countries_data.map(e => {
     }
 })
 
-console.log(countries_density_population)
+var countries_sorted = countries_density_population.sort((a, b) => b.density - a.density)
+
+var new_file = "COUNTRY POPULATION AREA DENSITY" + countries_sorted.map(e => {
+    return "\r\n".concat(e.country, " ").concat(e.population, " ").concat(e.area, " ").concat(e.density)
+})
+
+fs.writeFileSync("countries.csv", new_file);
+// fs.writeFileSync("programming.txt", data);
