@@ -45,5 +45,4 @@ var new_file = "COUNTRY POPULATION AREA DENSITY" + countries_sorted.map(e => {
     )
 })
 
-fs.writeFileSync("countries.csv", new_file);
-// fs.writeFileSync("programming.txt", data);
+fs.writeFileSync("countries.csv", new_file)
